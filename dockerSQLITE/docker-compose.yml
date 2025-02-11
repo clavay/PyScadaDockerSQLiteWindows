@@ -1,0 +1,30 @@
+version: '3'
+services:
+  pyscada:
+    image: dockersqlite-pyscada:latest
+    build: pyscada
+    container_name: pyscada
+    #volumes:
+    tty: true
+    volumes:
+      - "c:/temp/pyscada_docker:/src/pyscada/shared" # windows
+      #- "/tmp/pyscada_docker:/src/pyscada/shared" # linux
+      - "http:/src/pyscada/http"
+      - "sock:/src/pyscada/tmp"
+
+  nginx:
+    image: nginx-pyscada:latest
+    build: nginx
+    container_name: nginx
+    ports:
+      - "8090:80"
+      #- "8443:443"
+    volumes:
+      - "http:/var/www/http"
+      - "sock:/tmp"
+    depends_on:
+      - pyscada
+
+volumes:
+  http:
+  sock:

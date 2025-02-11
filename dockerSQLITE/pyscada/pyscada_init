@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+#while ! wget --quiet db:3306; do
+#    sleep 1
+#done
+mkdir /src/pyscada/shared/plugins/
+mkdir /src/pyscada/shared/log/
+mkdir /src/pyscada/shared/sqlite_db/
+touch /src/pyscada/shared/log/pyscada_debug.log
+python3 /src/pyscada/manage.py migrate
+python3 /src/pyscada/manage.py collectstatic --no-input
+python3 /src/pyscada/manage.py loaddata color
+python3 /src/pyscada/manage.py loaddata units
+python3 /src/pyscada/manage.py pyscada_daemon init
+export DJANGO_SUPERUSER_PASSWORD=pyscada && python3 /src/pyscada/manage.py createsuperuser --username pyscada --email clavayssiere@univ-pau.fr --no-input
