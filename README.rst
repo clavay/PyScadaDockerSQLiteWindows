@@ -4,11 +4,15 @@ Preconfigured PyScada using Docker and SQLite on Windows
 Installation
 ------------
 
-1. Download the `PyScadaDockerSQLiteWindows-main.zip <https://github.com/clavay/PyScadaDockerSQLiteWindows/archive/refs/heads/main.zip>`_ file.
+0. `Docker Desktop <https://docs.docker.com/desktop/setup/install/windows-install/>`_ must be installed.
 
-2. Launch Docker Desktop and wait for it to start up completely.
+1. Launch Docker Desktop and wait for it to start up completely.
 
-3. Run
+2. Download the `PyScadaDockerSQLiteWindows-main.zip <https://github.com/clavay/PyScadaDockerSQLiteWindows/archive/refs/heads/main.zip>`_ file.
+
+3. Extract the file and enter the PyScadaDockerSQLiteWindows-main directory.
+
+4. Run
 
    ::
 
@@ -16,9 +20,9 @@ Installation
 
    and wait until the end.
 
-4. Open the page http://127.0.0.1:8090
+5. Open the page http://127.0.0.1:8090
 
-5. Connect using :
+6. Connect using :
 
    ::
 
